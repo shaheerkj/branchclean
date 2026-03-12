@@ -7,8 +7,8 @@ from pathlib import Path
 from rich.console import Console
 from rich.prompt import Confirm
 
-from gitclean import git
-from gitclean.models import Branch, BranchCategory, ScanResult
+from branchclean import git
+from branchclean.models import Branch, BranchCategory, ScanResult
 
 console = Console()
 

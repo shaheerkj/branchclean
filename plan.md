@@ -1,8 +1,8 @@
-# GitClean — Stale Branch Cleaner
+# BranchClean — Stale Branch Cleaner
 
 ## Purpose
 
-GitClean is a command-line tool that analyzes Git repositories for stale, merged, and orphaned branches, then provides an interactive workflow to clean them up — both locally and on remotes. It eliminates the tedious manual process of auditing and deleting accumulated branches one by one.
+BranchClean is a command-line tool that analyzes Git repositories for stale, merged, and orphaned branches, then provides an interactive workflow to clean them up — both locally and on remotes. It eliminates the tedious manual process of auditing and deleting accumulated branches one by one.
 
 ## Problem Statement
 
@@ -44,7 +44,7 @@ There is no single tool that scans, classifies, and interactively cleans branche
 
 ## Core Features
 
-### 1. Branch Analysis (`gitclean scan`)
+### 1. Branch Analysis (`branchclean scan`)
 
 Scan a repository and produce a structured report of all branches.
 
@@ -66,7 +66,7 @@ Scan a repository and produce a structured report of all branches.
 
 **Output format:** Color-coded table in the terminal. Optional `--json` flag for machine-readable output.
 
-### 2. Interactive Cleanup (`gitclean clean`)
+### 2. Interactive Cleanup (`branchclean clean`)
 
 Present branches that are candidates for deletion, grouped by category:
 
@@ -90,7 +90,7 @@ For each selected branch, delete:
 
 All commands support a `--dry-run` flag that prints exactly what *would* be deleted without executing anything. This is the default for destructive operations until the user confirms.
 
-### 4. Multi-Repo Mode (`gitclean scan --dir <path>`)
+### 4. Multi-Repo Mode (`branchclean scan --dir <path>`)
 
 Scan all Git repositories found under a given directory. Useful for developers who keep multiple projects in a workspace folder.
 
@@ -98,7 +98,7 @@ Scan all Git repositories found under a given directory. Useful for developers w
 - Run the scan for each repository
 - Aggregate results in a summary
 
-### 5. Configuration (`.gitcleanrc` or CLI flags)
+### 5. Configuration (`.branchcleanrc` or CLI flags)
 
 Configurable via a dotfile in the repo root or home directory, overridable by CLI flags.
 
@@ -115,7 +115,7 @@ Configurable via a dotfile in the repo root or home directory, overridable by CL
 ## CLI Interface
 
 ```
-gitclean <command> [options]
+branchclean <command> [options]
 
 Commands:
   scan       Analyze branches and display a report
@@ -139,22 +139,22 @@ Options (global):
 
 ```bash
 # Scan current repo
-gitclean scan
+branchclean scan
 
 # Scan with custom staleness threshold
-gitclean scan --stale-days 30
+branchclean scan --stale-days 30
 
 # Interactive cleanup
-gitclean clean
+branchclean clean
 
 # Preview what would be deleted
-gitclean clean --dry-run
+branchclean clean --dry-run
 
 # Scan all repos in a workspace folder
-gitclean scan --dir ~/projects
+branchclean scan --dir ~/projects
 
 # Force-clean merged branches, no prompts
-gitclean clean --force
+branchclean clean --force
 ```
 
 ---
@@ -181,12 +181,12 @@ Minimal dependency footprint. Git itself is the only external requirement.
 ### Project Structure
 
 ```
-GitClean/
+BranchClean/
 ├── plan.md
 ├── pyproject.toml
 ├── README.md
 ├── src/
-│   └── gitclean/
+│   └── branchclean/
 │       ├── __init__.py
 │       ├── cli.py          # CLI entry point, command definitions
 │       ├── scanner.py      # Branch analysis logic
@@ -235,7 +235,7 @@ No git library (e.g., `gitpython`) — direct subprocess calls are simpler, more
 - Dry-run mode
 
 ### Phase 4 — Configuration & Multi-Repo
-- `.gitcleanrc` loading
+- `.branchcleanrc` loading
 - Protected branch patterns
 - Multi-repo directory scanning
 - Aggregated output
@@ -251,8 +251,8 @@ No git library (e.g., `gitpython`) — direct subprocess calls are simpler, more
 
 ## Success Criteria
 
-- Running `gitclean scan` in a repo with 20+ branches produces a clear, categorized report in under 2 seconds
-- Running `gitclean clean` safely deletes selected branches with zero data loss
+- Running `branchclean scan` in a repo with 20+ branches produces a clear, categorized report in under 2 seconds
+- Running `branchclean clean` safely deletes selected branches with zero data loss
 - Dry-run mode never executes any destructive git command
 - Protected branch patterns are always respected
 - The tool works on Windows, macOS, and Linux

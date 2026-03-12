@@ -1,4 +1,4 @@
-"""CLI entry point for GitClean."""
+"""CLI entry point for BranchClean."""
 
 from __future__ import annotations
 
@@ -10,14 +10,14 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from gitclean import __version__, git
-from gitclean.cleaner import clean_interactive
-from gitclean.config import Config, load_config
-from gitclean.models import BranchCategory
-from gitclean.scanner import scan_repo
+from branchclean import __version__, git
+from branchclean.cleaner import clean_interactive
+from branchclean.config import Config, load_config
+from branchclean.models import BranchCategory
+from branchclean.scanner import scan_repo
 
 app = typer.Typer(
-    name="gitclean",
+    name="branchclean",
     help="Analyze and clean up stale, merged, and orphaned Git branches.",
     no_args_is_help=True,
 )
@@ -229,5 +229,5 @@ def main(
     ),
 ) -> None:
     if version:
-        console.print(f"gitclean {__version__}")
+        console.print(f"branchclean {__version__}")
         raise typer.Exit()

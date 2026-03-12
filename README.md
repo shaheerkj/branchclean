@@ -1,4 +1,4 @@
-# GitClean
+# BranchClean
 
 A CLI tool that analyzes Git repositories for stale, merged, and orphaned branches, then helps you clean them up interactively.
 
@@ -14,34 +14,34 @@ pip install branchclean
 
 ```bash
 # Scan current repo
-gitclean scan
+branchclean scan
 
 # Custom staleness threshold
-gitclean scan --stale-days 30
+branchclean scan --stale-days 30
 
 # JSON output
-gitclean scan --json
+branchclean scan --json
 
 # Scan all repos in a directory
-gitclean scan --dir ~/projects --multi
+branchclean scan --dir ~/projects --multi
 ```
 
 ### Clean branches
 
 ```bash
 # Interactive cleanup
-gitclean clean
+branchclean clean
 
 # Preview what would be deleted
-gitclean clean --dry-run
+branchclean clean --dry-run
 
 # Skip prompts (use with caution)
-gitclean clean --force
+branchclean clean --force
 ```
 
 ### Configuration
 
-Create a `.gitcleanrc` file in your repo root or home directory:
+Create a `.branchcleanrc` file in your repo root or home directory:
 
 ```json
 {
@@ -55,7 +55,7 @@ Create a `.gitcleanrc` file in your repo root or home directory:
 View resolved config:
 
 ```bash
-gitclean config
+branchclean config
 ```
 
 ## Branch Categories

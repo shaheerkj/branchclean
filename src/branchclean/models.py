@@ -1,4 +1,4 @@
-"""Data models for GitClean."""
+"""Data models for BranchClean."""
 
 from __future__ import annotations
 

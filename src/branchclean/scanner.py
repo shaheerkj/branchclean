@@ -5,9 +5,9 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 
-from gitclean import git
-from gitclean.config import Config
-from gitclean.models import Branch, ScanResult
+from branchclean import git
+from branchclean.config import Config
+from branchclean.models import Branch, ScanResult
 
 
 def _parse_date(raw: str) -> datetime | None:

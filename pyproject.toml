@@ -36,10 +36,10 @@ Repository = "https://github.com/shaheerkj/branchclean"
 Issues = "https://github.com/shaheerkj/branchclean/issues"
 
 [project.scripts]
-gitclean = "gitclean.cli:app"
+branchclean = "branchclean.cli:app"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/gitclean"]
+packages = ["src/branchclean"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/gitclean"]
+include = ["src/branchclean"]

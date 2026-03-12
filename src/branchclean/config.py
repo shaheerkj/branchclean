@@ -1,4 +1,4 @@
-"""Configuration loading and resolution for GitClean."""
+"""Configuration loading and resolution for BranchClean."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 
-_CONFIG_FILENAME = ".gitcleanrc"
+_CONFIG_FILENAME = ".branchcleanrc"
 
 
 @dataclass
@@ -25,7 +25,7 @@ class Config:
 
 
 def load_config(repo: Path | None = None) -> Config:
-    """Load config by merging home-level and repo-level .gitcleanrc files.
+    """Load config by merging home-level and repo-level .branchcleanrc files.
 
     Repo-level settings override home-level settings.
     """
